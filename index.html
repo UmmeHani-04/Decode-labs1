@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hearth Tasks | Responsive Frontend Interface</title>
+  <meta name="description" content="A responsive, accessible, mobile-first task app built with semantic HTML5, CSS Grid/Flexbox and vanilla JavaScript.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Hearth Tasks home">Hearth Tasks</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#app">My tasks</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <a class="btn btn-primary" href="#app">Start now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Plan your day on any screen</h1>
+        <p>Hearth Tasks adapts from a phone in your pocket to a desktop monitor, so your list is always readable and within reach.</p>
+        <a class="btn btn-primary" href="#app">Add your first task</a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="device device-phone"></div>
+        <div class="device device-tablet"></div>
+        <div class="device device-desktop"></div>
+      </div>
+    </section>
+
+    <section id="features" class="section" aria-labelledby="features-title">
+      <h2 id="features-title">Built to fit</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Mobile first</h3>
+          <p>One clean column on phones that grows into two and three columns as the screen widens.</p>
+        </article>
+        <article class="card">
+          <h3>Accessible by default</h3>
+          <p>Semantic landmarks, visible focus, keyboard support and colour contrast that meets WCAG AA.</p>
+        </article>
+        <article class="card">
+          <h3>Remembers your list</h3>
+          <p>Tasks are saved in your browser, so they are still there when you come back.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="app" class="section app" aria-labelledby="app-title">
+      <div class="app-layout">
+        <div class="app-main">
+          <h2 id="app-title">My tasks</h2>
+          <form id="task-form" novalidate>
+            <label for="task-input">New task</label>
+            <div class="form-row">
+              <input id="task-input" name="task" type="text" maxlength="80" autocomplete="off" placeholder="e.g. Finish the wireframe" required>
+              <button class="btn btn-primary" type="submit">Add task</button>
+            </div>
+            <p id="form-error" class="form-error" role="alert" hidden></p>
+          </form>
+
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" data-filter="active" aria-pressed="false">To do</button>
+            <button class="chip" data-filter="done" aria-pressed="false">Done</button>
+          </div>
+
+          <ul id="task-list" class="task-list" aria-live="polite"></ul>
+          <p id="empty-state" class="empty" hidden>No tasks here yet. Add one above to get started.</p>
+        </div>
+
+        <aside class="app-side" aria-labelledby="stats-title">
+          <h3 id="stats-title">Today at a glance</h3>
+          <dl class="stats">
+            <div><dt>Total</dt><dd id="stat-total">0</dd></div>
+            <div><dt>To do</dt><dd id="stat-active">0</dd></div>
+            <div><dt>Done</dt><dd id="stat-done">0</dd></div>
+          </dl>
+          <button id="clear-done" class="btn btn-ghost" type="button">Clear completed</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">About this project</h2>
+      <p class="measure">Built for DecodeLabs Project 1 using HTML5, CSS3 (Grid, Flexbox, clamp()) and vanilla JavaScript. No frameworks, only fundamentals.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Hearth Tasks. Built with care for every screen size.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
